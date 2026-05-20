@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Make-A-Wish MCP · {{ current.title }}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.5.0/dist/tabler-icons.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='host.css') }}" />
+</head>
+<body data-persona="{{ persona.key }}">
+
+  <div class="host-shell">
+
+    <aside class="host-sidebar" aria-label="Workspace navigation">
+      <div class="host-sidebar-top">
+        <button class="host-sidebar-toggle" type="button" title="Toggle sidebar (\\)">
+          <i class="ti ti-layout-sidebar" aria-hidden="true"></i>
+        </button>
+        <div class="host-sidebar-brand">
+          <span class="host-sidebar-logo" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 18 L9.5 6 H11.5 L7 18 Z M11 18 L15.5 6 H17.5 L13 18 Z" fill="#c96442"/>
+            </svg>
+          </span>
+          <span class="host-sidebar-wordmark">Claude</span>
+        </div>
+      </div>
+
+      <button class="host-newchat" type="button" data-action="toast" data-prompt="Start a new conversation in this workspace.">
+        <i class="ti ti-edit" aria-hidden="true"></i>
+        <span>New chat</span>
+        <span class="host-kbd">⌘ K</span>
+      </button>
+
+      <nav class="host-sidebar-section">
+        <a href="#" class="host-sidebar-item" data-action="toast" data-prompt="Open the chat history search.">
+          <i class="ti ti-search" aria-hidden="true"></i><span>Chats</span>
+        </a>
+        <a href="#" class="host-sidebar-item" data-action="toast" data-prompt="Open Projects.">
+          <i class="ti ti-folders" aria-hidden="true"></i><span>Projects</span>
+        </a>
+        <a href="#" class="host-sidebar-item" data-action="toast" data-prompt="Open Artifacts.">
+          <i class="ti ti-sparkles" aria-hidden="true"></i><span>Artifacts</span>
+        </a>
+      </nav>
+
+      <div class="host-sidebar-section">
+        <p class="host-sidebar-heading">Projects</p>
+        {% for p in persona.projects %}
+          <a href="#" class="host-sidebar-item {% if p.active %}is-active{% endif %}"
+             data-action="toast" data-prompt="Open the &quot;{{ p.name }}&quot; project.">
+            <i class="ti {{ p.icon }}" aria-hidden="true"></i><span>{{ p.name }}</span>
+          </a>
+        {% endfor %}
+      </div>
+
+      <div class="host-sidebar-section host-sidebar-recents">
+        <p class="host-sidebar-heading">Recents</p>
+        {% for r in persona.recents %}
+          <a href="#" class="host-sidebar-chat {% if r.active %}is-active{% endif %}"
+             data-action="toast" data-prompt="Open the chat &quot;{{ r.title }}&quot;.">
+            <span class="host-sidebar-chat-title">{{ r.title }}</span>
+            <span class="host-sidebar-chat-meta">{{ r.meta }}</span>
+          </a>
+        {% endfor %}
+      </div>
+
+      <div class="host-sidebar-foot">
+        <div class="host-user">
+          <div class="host-user-avatar" style="background: {{ persona.avatar_bg }}; color: {{ persona.avatar_fg }};">
+            {{ persona.initials }}
+          </div>
+          <div class="host-user-meta">
+            <div class="host-user-name">{{ persona.name }}</div>
+            <div class="host-user-role">{{ persona.role }}</div>
+          </div>
+          <i class="ti ti-dots" aria-hidden="true"></i>
+        </div>
+      </div>
+    </aside>
+
+    <div class="host-main">
+      <header class="host-nav">
+        <div class="host-nav-brand">
+          <div class="host-nav-mark"><i class="ti ti-sparkles" aria-hidden="true"></i></div>
+          <div class="host-nav-titles">
+            <div class="host-nav-title">{{ current.chat_title }}</div>
+            <div class="host-nav-sub">{{ persona.workspace }} · MCP connected</div>
+          </div>
+        </div>
+        <nav class="host-nav-tabs" aria-label="Demo screens">
+          {% for s in screens %}
+            <a href="{{ url_for('screen', num=s.num) }}"
+               class="host-nav-tab {% if s.num == current.num %}is-active{% endif %}"
+               data-screen="{{ s.num }}">
+              <span class="host-nav-tab-num">{{ s.num }}</span>
+              <span class="host-nav-tab-label">{{ s.title }}</span>
+            </a>
+          {% endfor %}
+          <a href="{{ url_for('screen', num=1) }}" class="host-nav-restart" title="Restart demo (R)" data-action="restart">
+            <i class="ti ti-refresh" aria-hidden="true"></i>
+          </a>
+        </nav>
+      </header>
+
+      <main class="host-stage">
+        <div class="host-frame">
+          {{ fragment | safe }}
+        </div>
+
+        <div class="host-composer" aria-hidden="true">
+          <div class="host-composer-inner">
+            <i class="ti ti-paperclip" aria-hidden="true"></i>
+            <span class="host-composer-placeholder">Reply to Claude…</span>
+            <div class="host-composer-actions">
+              <span class="host-composer-pill"><i class="ti ti-tool" aria-hidden="true"></i> Tools</span>
+              <span class="host-composer-pill"><i class="ti ti-plug-connected" aria-hidden="true"></i> MCP</span>
+              <span class="host-composer-send"><i class="ti ti-arrow-up" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="host-footer">
+        <span>Screen {{ current.num }} of {{ total }}</span>
+        <span>Demo · synthetic data · no PHI</span>
+        <span class="host-footer-hint">← → navigate · R restart · \ sidebar · Esc dismiss</span>
+      </footer>
+    </div>
+
+  </div>
+
+  <div id="host-toast" class="host-toast" role="status" aria-live="polite"></div>
+
+  <div id="host-success" class="host-success" hidden>
+    <div class="host-success-card">
+      <div class="host-success-icon"><i class="ti ti-circle-check" aria-hidden="true"></i></div>
+      <h2>Referral submitted</h2>
+      <p>J.T.'s Make-A-Wish referral has been signed by Dr. Patel and transmitted to the Central &amp; Northern Florida chapter.</p>
+      <p class="host-success-meta">Reference ID · MAW-2026-0517-JT · Submitted just now</p>
+      <button type="button" data-action="restart">
+        <i class="ti ti-refresh" aria-hidden="true"></i> Restart demo
+      </button>
+    </div>
+  </div>
+
+  <script>
+    window.__HOST__ = {
+      current: {{ current.num }},
+      total: {{ total }},
+      urls: { {% for s in screens %}{{ s.num }}: "{{ url_for('screen', num=s.num) }}"{% if not loop.last %}, {% endif %}{% endfor %} }
+    };
+  </script>
+  <script src="{{ url_for('static', filename='host.js') }}"></script>
+</body>
+</html>

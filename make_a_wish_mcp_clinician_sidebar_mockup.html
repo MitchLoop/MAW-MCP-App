@@ -1,0 +1,218 @@
+<h2 class="sr-only">Mockup of a children's hospital social worker using Claude with the Make-A-Wish MCP server connected, screening a pediatric oncology patient panel for wish eligibility.</h2>
+
+<div style="background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 16px; font-family: var(--font-sans);">
+
+  <div style="background: var(--color-background-primary); border-radius: var(--border-radius-lg); border: 0.5px solid var(--color-border-tertiary); overflow: hidden;">
+
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 0.5px solid var(--color-border-tertiary);">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 28px; height: 28px; border-radius: 6px; background: var(--color-background-secondary); display: flex; align-items: center; justify-content: center;">
+          <i class="ti ti-sparkles" style="font-size: 16px; color: var(--color-text-secondary);" aria-hidden="true"></i>
+        </div>
+        <div>
+          <p style="font-size: 13px; font-weight: 500; margin: 0;">Claude for Healthcare</p>
+          <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">Anchor Children's Hospital workspace</p>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px; padding: 4px 10px; background: #EAF3DE; border-radius: 999px;">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: #3B6D11;"></span>
+        <span style="font-size: 11px; color: #173404; font-weight: 500;">MCP connected</span>
+      </div>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--color-background-secondary); border-bottom: 0.5px solid var(--color-border-tertiary);">
+      <i class="ti ti-plug-connected" style="font-size: 14px; color: var(--color-text-secondary);" aria-hidden="true"></i>
+      <span style="font-size: 12px; color: var(--color-text-secondary);">Connected servers:</span>
+      <span style="font-size: 11px; padding: 2px 8px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 999px;"><i class="ti ti-heart-handshake" style="font-size:12px; vertical-align:-1px; margin-right:3px" aria-hidden="true"></i>make-a-wish</span>
+      <span style="font-size: 11px; padding: 2px 8px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 999px;"><i class="ti ti-database" style="font-size:12px; vertical-align:-1px; margin-right:3px" aria-hidden="true"></i>epic-fhir</span>
+      <span style="font-size: 11px; padding: 2px 8px; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 999px;"><i class="ti ti-id-badge" style="font-size:12px; vertical-align:-1px; margin-right:3px" aria-hidden="true"></i>sso</span>
+    </div>
+
+    <div style="padding: 20px 16px;">
+
+      <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+        <div style="width: 28px; height: 28px; border-radius: 50%; background: #FBEAF0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 11px; font-weight: 500; color: #72243E;">MS</div>
+        <div style="flex: 1;">
+          <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0 0 4px;">Maria Santos · Pediatric oncology social worker</p>
+          <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px;">
+            <p style="font-size: 14px; margin: 0; line-height: 1.5;">Screen my unit's current inpatients for Make-A-Wish eligibility. Skip kids who already had a wish.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+        <div style="width: 28px; height: 28px; border-radius: 6px; background: var(--color-background-secondary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <i class="ti ti-sparkles" style="font-size: 14px; color: var(--color-text-secondary);" aria-hidden="true"></i>
+        </div>
+        <div style="flex: 1;">
+
+          <div style="background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 12px; margin-bottom: 10px;">
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+              <i class="ti ti-tool" style="font-size: 13px; color: var(--color-text-secondary);" aria-hidden="true"></i>
+              <span style="font-size: 11px; font-weight: 500; color: var(--color-text-secondary);">Called <span style="font-family: var(--font-mono); color: var(--color-text-primary);">epic-fhir.list_unit_patients</span></span>
+            </div>
+            <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0; font-family: var(--font-mono);">unit="peds-onc-7w" → 14 patients</p>
+          </div>
+
+          <div style="background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 12px; margin-bottom: 10px;">
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+              <i class="ti ti-tool" style="font-size: 13px; color: var(--color-text-secondary);" aria-hidden="true"></i>
+              <span style="font-size: 11px; font-weight: 500; color: var(--color-text-secondary);">Called <span style="font-family: var(--font-mono); color: var(--color-text-primary);">make-a-wish.screen_patient_panel</span></span>
+            </div>
+            <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 0; font-family: var(--font-mono);">14 patients screened · 3 eligible · 2 review · 9 not eligible</p>
+          </div>
+
+          <p style="font-size: 14px; margin: 0 0 14px; line-height: 1.6;">I screened all 14 patients on Peds Onc 7-West against current Make-A-Wish criteria. Three appear clearly eligible and none have a prior wish on record.</p>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 16px;">
+            <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">Likely eligible</p>
+              <p style="font-size: 22px; font-weight: 500; margin: 4px 0 0; color: #0F6E56;">3</p>
+            </div>
+            <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">Needs review</p>
+              <p style="font-size: 22px; font-weight: 500; margin: 4px 0 0; color: #854F0B;">2</p>
+            </div>
+            <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px;">
+              <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">Not eligible</p>
+              <p style="font-size: 22px; font-weight: 500; margin: 4px 0 0; color: var(--color-text-secondary);">9</p>
+            </div>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); margin-bottom: 10px; overflow: hidden;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; border-bottom: 0.5px solid var(--color-border-tertiary);">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #E1F5EE; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: #04342C;">JT</div>
+                <div>
+                  <p style="font-size: 13px; font-weight: 500; margin: 0;">Patient · J.T.</p>
+                  <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">Age 9 · MRN ****4821</p>
+                </div>
+              </div>
+              <span style="font-size: 11px; padding: 3px 10px; background: #E1F5EE; color: #04342C; border-radius: 999px; font-weight: 500;">Likely eligible</span>
+            </div>
+            <div style="padding: 12px 14px;">
+              <table style="width: 100%; font-size: 12px; border-collapse: collapse;">
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0; width: 35%;">Diagnosis</td>
+                  <td style="padding: 3px 0;">AML, post-induction</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0;">Qualifying specialty</td>
+                  <td style="padding: 3px 0;">Oncology <span style="color: var(--color-text-tertiary);">(matched)</span></td>
+                </tr>
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0;">Age check</td>
+                  <td style="padding: 3px 0;">9 yrs <span style="color: var(--color-text-tertiary);">(within 2½ to under 18)</span></td>
+                </tr>
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0;">Prior wish</td>
+                  <td style="padding: 3px 0;">None on record</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0;">Treating physician</td>
+                  <td style="padding: 3px 0;">Dr. Patel, Peds Heme/Onc</td>
+                </tr>
+              </table>
+            </div>
+            <div style="display: flex; gap: 8px; padding: 10px 14px; border-top: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary);">
+              <button onclick="sendPrompt('Draft the referral inquiry for patient J.T. and route it to Dr. Patel for medical confirmation.')" style="font-size: 12px;"><i class="ti ti-file-text" style="font-size:13px; vertical-align:-2px; margin-right:4px" aria-hidden="true"></i>Draft referral ↗</button>
+              <button onclick="sendPrompt('Show me the full eligibility rationale for patient J.T. with citations to the Make-A-Wish criteria.')" style="font-size: 12px;"><i class="ti ti-info-circle" style="font-size:13px; vertical-align:-2px; margin-right:4px" aria-hidden="true"></i>Why eligible ↗</button>
+            </div>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); margin-bottom: 10px; overflow: hidden;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; border-bottom: 0.5px solid var(--color-border-tertiary);">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #E1F5EE; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: #04342C;">AR</div>
+                <div>
+                  <p style="font-size: 13px; font-weight: 500; margin: 0;">Patient · A.R.</p>
+                  <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">Age 5 · MRN ****7290</p>
+                </div>
+              </div>
+              <span style="font-size: 11px; padding: 3px 10px; background: #E1F5EE; color: #04342C; border-radius: 999px; font-weight: 500;">Likely eligible</span>
+            </div>
+            <div style="padding: 12px 14px;">
+              <table style="width: 100%; font-size: 12px; border-collapse: collapse;">
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0; width: 35%;">Diagnosis</td>
+                  <td style="padding: 3px 0;">Medulloblastoma, on chemo</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0;">Qualifying specialty</td>
+                  <td style="padding: 3px 0;">Oncology <span style="color: var(--color-text-tertiary);">(matched)</span></td>
+                </tr>
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0;">Age check</td>
+                  <td style="padding: 3px 0;">5 yrs <span style="color: var(--color-text-tertiary);">(within 2½ to under 18)</span></td>
+                </tr>
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0;">Prior wish</td>
+                  <td style="padding: 3px 0;">None on record</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0;">Treating physician</td>
+                  <td style="padding: 3px 0;">Dr. Nguyen, Neuro-onc</td>
+                </tr>
+              </table>
+            </div>
+            <div style="display: flex; gap: 8px; padding: 10px 14px; border-top: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary);">
+              <button onclick="sendPrompt('Draft the referral inquiry for patient A.R. and route it to Dr. Nguyen for medical confirmation.')" style="font-size: 12px;"><i class="ti ti-file-text" style="font-size:13px; vertical-align:-2px; margin-right:4px" aria-hidden="true"></i>Draft referral ↗</button>
+              <button onclick="sendPrompt('Show me the full eligibility rationale for patient A.R. with citations to the Make-A-Wish criteria.')" style="font-size: 12px;"><i class="ti ti-info-circle" style="font-size:13px; vertical-align:-2px; margin-right:4px" aria-hidden="true"></i>Why eligible ↗</button>
+            </div>
+          </div>
+
+          <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); margin-bottom: 14px; overflow: hidden;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; border-bottom: 0.5px solid var(--color-border-tertiary);">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div style="width: 32px; height: 32px; border-radius: 50%; background: #FAEEDA; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: #412402;">DM</div>
+                <div>
+                  <p style="font-size: 13px; font-weight: 500; margin: 0;">Patient · D.M.</p>
+                  <p style="font-size: 11px; color: var(--color-text-secondary); margin: 0;">Age 14 · MRN ****1145</p>
+                </div>
+              </div>
+              <span style="font-size: 11px; padding: 3px 10px; background: #FAEEDA; color: #412402; border-radius: 999px; font-weight: 500;">Needs review</span>
+            </div>
+            <div style="padding: 12px 14px;">
+              <table style="width: 100%; font-size: 12px; border-collapse: collapse;">
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0; width: 35%;">Diagnosis</td>
+                  <td style="padding: 3px 0;">Cystic fibrosis, recurrent pulmonary exacerbations</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0;">Qualifying specialty</td>
+                  <td style="padding: 3px 0;">Pulmonology <span style="color: var(--color-text-tertiary);">(matched)</span></td>
+                </tr>
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0;">Criterion flag</td>
+                  <td style="padding: 3px 0; color: #854F0B;">CF requires complicating factors per Jan 2024 NMAC update</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--color-text-secondary); padding: 3px 0;">Prior wish</td>
+                  <td style="padding: 3px 0;">None on record</td>
+                </tr>
+              </table>
+            </div>
+            <div style="display: flex; gap: 8px; padding: 10px 14px; border-top: 0.5px solid var(--color-border-tertiary); background: var(--color-background-secondary);">
+              <button onclick="sendPrompt('Pull D.M.\u0027s pulmonology notes and FEV1 trend, then re-evaluate against the CF complicating-factors criteria.')" style="font-size: 12px;"><i class="ti ti-stethoscope" style="font-size:13px; vertical-align:-2px; margin-right:4px" aria-hidden="true"></i>Pull clinical context ↗</button>
+              <button onclick="sendPrompt('Send this case to the chapter medical advisor for review.')" style="font-size: 12px;"><i class="ti ti-user-check" style="font-size:13px; vertical-align:-2px; margin-right:4px" aria-hidden="true"></i>Send to advisor ↗</button>
+            </div>
+          </div>
+
+          <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 8px; line-height: 1.6;">Two patients flagged for review and nine ruled out on age, diagnosis, or prior-wish criteria. Want the full breakdown of the nine, or shall we draft referrals for the three eligible kids now?</p>
+
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button onclick="sendPrompt('Draft referrals for all three eligible patients in one batch.')" style="font-size: 12px;">Draft all 3 referrals ↗</button>
+            <button onclick="sendPrompt('Show me why the 9 not-eligible patients were ruled out.')" style="font-size: 12px;">Show ineligible reasoning ↗</button>
+            <button onclick="sendPrompt('Expand the screen to include Peds Cardiology and Peds Neuro inpatient units.')" style="font-size: 12px;">Expand to other units ↗</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 10px 0 0; text-align: center;">Mockup · synthetic patient data · no PHI</p>
+
+</div>
